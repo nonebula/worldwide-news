@@ -1,5 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Navbar from "../navbar/Navbar";
+import styles from "./Header.module.css";
 
 const Header = () => {
   const [search, setSearch] = useState("");
