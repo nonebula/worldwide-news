@@ -1,8 +1,10 @@
-import React from 'react';
+import { createContext } from "react";
 
+export const ThemeContext = createContext();
 
-const ThemeContext = React.createContext();
-
-export const ThemeProvider= ({ children }) => {
-    return <ThemeContext.Provider>{children}</ThemeContext.Provider>
-}
+const theme = {};
+export const ThemeProvider = ({ children }) => {
+  return (
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+  );
+};
