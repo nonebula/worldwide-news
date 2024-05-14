@@ -5,11 +5,14 @@ import Spinner from "../../components/spinner/Spinner";
 import axios from "axios";
 import NewsCard from "../../components/newsCard/NewsCard";
 import { ThemeContext } from "../../context/ThemeContext";
+import ChangeTheme from "../../components/theme/ChangeTheme";
 const Home = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const theme = useContext(ThemeContext);
+
+  const darkMode = theme.state.darkMode;
 
   const apiKey = "13d62846-468d-4c8a-9a4f-11aed5a844af";
   // const apiKey = process.env.REACT_APP_API_KEY;
@@ -32,7 +35,11 @@ const Home = () => {
   const sliderNews = news?.splice(0, 3);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ backgroundColor: darkMode ? "orange" : "white" }}
+    >
+      <ChangeTheme />
       <div className={styles.slider}>
         <Slider sliderNews={sliderNews} />{" "}
       </div>
