@@ -1,21 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Search.module.css";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import NewsCard from "../../components/newsCard/NewsCard";
+
 const Search = () => {
   const [news, setNews] = useState("");
   const { state } = useLocation();
 
-  const apiKey = process.env.REACT_APP_API_KEY;
-  const url = `https://newsapi.org/v2/everything?q=${state}&apiKey=${apiKey}`;
+  const apiKey = "13d62846-468d-4c8a-9a4f-11aed5a844af";
+
+  // Reinstate this on build
+  // const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
+    if (!apiKey) {
+      console.error(
+        "API key is not defined. Please check your environment configuration."
+      );
+      return;
+    }
+
+    const url = `https://newsapi.org/v2/everything?q=${state}&apiKey=${apiKey}`;
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNews(data.articles))
-      .catch(error);
-  }, [url]);
+      .catch((error) => console.error("Error fetching news:", error));
+  }, [state, apiKey]);
 
   return (
     <div className={styles.searchPage}>
