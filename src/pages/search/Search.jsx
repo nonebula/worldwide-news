@@ -7,7 +7,7 @@ const Search = () => {
   const [news, setNews] = useState("");
   const { state } = useLocation();
 
-  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     if (!apiKey) {

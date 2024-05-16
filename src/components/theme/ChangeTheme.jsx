@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./ChangeTheme.module.css";
 import { ThemeContext } from "../../context/ThemeContext";
 import sun from "../../assets/sun.jpeg";
 import moon from "../../assets/moon.jpeg";
+
 const ChangeTheme = () => {
   const theme = useContext(ThemeContext);
 

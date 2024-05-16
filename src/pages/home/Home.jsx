@@ -8,7 +8,7 @@ import useNews from "../../hooks/useNews";
 
 const Home = () => {
   const { news, loading, theme } = useNews("", "us");
-  const darkMode = theme.state.darkMode;
+  const darkMode = theme && theme.state.darkMode;
   const sliderNews = news?.splice(0, 3);
   useEffect(() => {}, [darkMode]);
 

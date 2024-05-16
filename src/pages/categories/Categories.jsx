@@ -3,6 +3,7 @@ import styles from "./Categories.module.css";
 import { useLocation } from "react-router-dom";
 import NewsCard from "../../components/newsCard/NewsCard";
 import useNews from "../../hooks/useNews";
+import Spinner from "../../components/spinner/Spinner";
 const Categories = () => {
   const { state } = useLocation();
 
@@ -25,9 +26,7 @@ const Categories = () => {
       </div>
       <div className={styles.right}>
         {loading && <Spinner />}
-        {news.map((item, index) => (
-          <NewsCard key={index} {...item} />
-        ))}
+        {news && news.map((item, index) => <NewsCard key={index} {...item} />)}
       </div>
     </div>
   );
