@@ -5,6 +5,7 @@ import Spinner from "../../components/spinner/Spinner";
 import NewsCard from "../../components/newsCard/NewsCard";
 import ChangeTheme from "../../components/theme/ChangeTheme";
 import useNews from "../../hooks/useNews";
+
 const Home = () => {
   const { news, loading, theme } = useNews("", "us");
   const darkMode = theme.state.darkMode;
@@ -18,10 +19,9 @@ const Home = () => {
     >
       <ChangeTheme />
       <div className={styles.slider}>
-        <Slider sliderNews={sliderNews} />{" "}
+        <Slider sliderNews={sliderNews} />
       </div>
       <div className={styles.news}>
-        {" "}
         {loading && <Spinner />}
         {news?.map((item, index) => (
           <NewsCard key={index} {...item} />

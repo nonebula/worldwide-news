@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./NewsCard.module.css";
-// add random.png news image
+import random from "../../assets/newsww.jpeg";
 const NewsCard = ({ title, url, urlToImage, content }) => {
   return (
     <div className={styles.card}>

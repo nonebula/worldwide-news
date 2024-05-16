@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styles from "./Slider.module.css";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 
 const Slider = ({ sliderNews }) => {
   const [current, setCurrent] = useState(0);

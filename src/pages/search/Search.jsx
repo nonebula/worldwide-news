@@ -7,10 +7,7 @@ const Search = () => {
   const [news, setNews] = useState("");
   const { state } = useLocation();
 
-  const apiKey = "13d62846-468d-4c8a-9a4f-11aed5a844af";
-
-  // Reinstate this on build
-  // const apiKey = process.env.REACT_APP_API_KEY;
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     if (!apiKey) {

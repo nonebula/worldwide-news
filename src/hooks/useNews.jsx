@@ -8,9 +8,9 @@ const useNews = (initialCategory = "", initialCountry = "us") => {
   const [filter, setFilter] = useState("");
   const [category, setCategory] = useState(initialCategory);
   const [country, setCountry] = useState(initialCountry);
-  const apiKey = "13d62846-468d-4c8a-9a4f-11aed5a844af";
 
-  // const apiKey = process.env.REACT_APP_API_KEY;
+  const apiKey = process.env.REACT_APP_API_KEY;
+  
   const theme = useContext(ThemeContext);
   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`;
 
